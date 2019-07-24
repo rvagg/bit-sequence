@@ -1,0 +1,15 @@
+{
+  "name": "bit-sequence",
+  "version": "1.0.0",
+  "description": "Turn an arbitrary sequence of bits from a byte array and turn it into an integer",
+  "main": "js/bit-sequence.js",
+  "scripts": {
+    "test": "node js/test.js"
+  },
+  "author": "Rod <rod@vagg.org> (http://r.va.gg/)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rvagg/bit-sequence.git"
+  }
+}
