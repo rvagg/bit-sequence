@@ -44,8 +44,7 @@ function binaryStringToBytes (s) {
   assert.strictEqual(bytesHex.replace(/^0+/, ''), parseInt(binary, 2).toString(16))
 })
 
-let asserts = 0
-;[
+const testCases = [
   '00000001',
   '11111111',
   '01010101',
@@ -73,14 +72,36 @@ let asserts = 0
   '0000000000000000000000000000000000000000000000000000000000000001',
   '1000000000000000000000000000000000000000000000000000000000000001',
   '1010110100111110101110101001010001000000001101011101110010011111',
-  '11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'
-].forEach((s) => {
+  '11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111',
+  '1111101000010110000011111100000101110000010110111001100000000000',
+  '10010101000110001000101011111111101000010110000011111100000101110000010110111001111000011001000000001000111101010010101001110000'
+]
+
+let makeFixture = false
+if (process.argv[2] == '--fixture') {
+  makeFixture = true
+}
+let asserts = 0
+let tooBig = 0
+testCases.forEach((s) => {
   const bytes = binaryStringToBytes(s)
 
   for (let start = 0; start < bytes.length * 8; start++) {
     for (let length = 1; length <= bytes.length * 8 - start; length++) {
       const expected = parseInt(s.substring(start, start + length), 2)
+      if (makeFixture && length <= 32) {
+        console.log([
+          Buffer.from(binaryStringToBytes(s)).toString('hex'),
+          start,
+          length,
+          expected
+        ].join(','))
+      }
       const actual = bitSequence(bytes, start, length)
+      if (actual != expected && actual > Number.MAX_SAFE_INTEGER) {
+        tooBig++
+        continue
+      }
       // console.log(`[${s}] start=${start} length=${length} ${actual} <> ${expected}`)
       asserts++
       assert.strictEqual(actual, expected, `[${s}] start=${start} length=${length} ${actual} <> ${expected}`)
@@ -90,3 +111,4 @@ let asserts = 0
 })
 
 assert.ok(asserts > 10000, 'did a lot of asserts')
+assert.ok(tooBig < 200, 'not too many non-matches beyond MAX_SAFE_INTEGER')
