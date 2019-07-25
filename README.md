@@ -2,13 +2,21 @@
 
 **Turn an arbitrary sequence of bits from a byte array and turn it into an integer**
 
+* [JavaScript](#javascript)
+  * [Example](#example)
+  * [API](#api)
+* [Go](#go)
+* [License and Copyright](#license-and-copyright)
+
+## JavaScript
+
 [![NPM](https://nodei.co/npm/bit-sequence.svg)](https://nodei.co/npm/bit-sequence/)
 
 Given an `Array`-like containing bytes (unsigned 8-bit integers), extract an arbitrary sequence of the underlying bits and convert them into an unsigned integer value.
 
 Useful for cases where a sub-sequence of bits within a longer byte sequence is used to form an index, such as in a [hash array mapped trie](https://en.wikipedia.org/wiki/Hash_array_mapped_trie) where an index at each level of the tree structure is formed by incremental chunks of a key's hash.
 
-## Example
+### Example
 
 ```js
 const bitSequence = require('bit-sequence')
@@ -19,7 +27,7 @@ const int = bitSequence(bytes, 7, 11)
 assert.strictEqual(int, 0b11010100000) // or `1696`
 ```
 
-## API
+### API
 
 **`bitSequence(bytes, start, length)`**
 
@@ -32,6 +40,20 @@ Returns an **unsigned integer** version of the bit sequence. The most significan
 As per the example above, the assumption is that we are extracting bytes where the least significant bit is to the right, so we extract in the same order as presented by binary literals.
 
 JavaScript's crazy numbers allows us to extract potentially very large bit sequences, but the usual caveats apply at 32-bits and beyond [`Number.MAX_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER).
+
+## Go
+
+`github.com/rvagg/bit-sequence/go`
+
+### API
+
+Exports `BitSequence(bytes []byte, bitStart uint32, bitLength uint32) uint32` where:
+
+* `bytes` is a simple byte array of arbitrary length
+* `start` is a _bit_ index to start extraction (not a _byte_ index).
+* `length` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
+
+Returns an unsigned integer version of the bit sequence. The most significant bit is not interpreted for a two's compliment representation.
 
 ## License and Copyright
 

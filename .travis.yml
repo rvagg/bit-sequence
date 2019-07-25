@@ -1,11 +1,19 @@
 language: node_js
-
-node_js:
-  - "8"
-  - "10"
-  - "12"
-  - "node"
-  - "lts/*"
-
+matrix:
+  include:
+    - name: "Node.js 8"
+      node_js: 8
+    - name: "Node.js 10"
+      node_js: 10
+    - name: "Node.js 12"
+      node_js: 12
+    - name: "Node.js current"
+      node_js: "node"
+    - name: "Node.js LTS"
+      node_js: "lts/*"
+    - name: "Go"
+      language: go
+      go: 1.x
+      script: cd go && go test
 script:
   - npm test
