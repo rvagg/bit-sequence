@@ -1,17 +1,22 @@
 package bitsequence
 
-import (
-	"math"
-)
-
+// BitSequence turns an arbitrary sequence of bits from a byte array into an integer.
+//
+// - `bytes` is a simple byte array of arbitrary length
+//
+// - `start` is a _bit_ index to start extraction (not a _byte_ index).
+//
+// - `length` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
+//
+// Returns an unsigned integer version of the bit sequence. The most significant bit is not interpreted for a two's compliment representation.
 func BitSequence(bytes []byte, bitStart uint32, bitLength uint32) uint32 {
 	if bitLength > 32 {
 		// does this constraint deserve an Error?
 		bitLength = 32
 	}
 	startOffset := bitStart % 8
-	byteCount := uint32(math.Ceil((float64(startOffset) + float64(bitLength)) / 8))
-	byteStart := bitStart >> 3
+	byteCount := (7 + startOffset + bitLength) / 8
+	byteStart := bitStart / 8
 	endOffset := byteCount*8 - bitLength - startOffset
 
 	var result uint32
