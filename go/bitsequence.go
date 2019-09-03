@@ -1,5 +1,7 @@
 package bitsequence
 
+import "fmt"
+
 // BitSequence turns an arbitrary sequence of bits from a byte array into an integer.
 //
 // - `bytes` is a simple byte array of arbitrary length
@@ -9,15 +11,18 @@ package bitsequence
 // - `length` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
 //
 // Returns an unsigned integer version of the bit sequence. The most significant bit is not interpreted for a two's compliment representation.
-func BitSequence(bytes []byte, bitStart uint32, bitLength uint32) uint32 {
+func BitSequence(bytes []byte, bitStart uint32, bitLength uint32) (uint32, error) {
 	if bitLength > 32 {
-		// does this constraint deserve an Error?
-		bitLength = 32
+		return 0, fmt.Errorf("maximum bits that can be read is 32")
 	}
 	startOffset := bitStart % 8
 	byteCount := (7 + startOffset + bitLength) / 8
 	byteStart := bitStart / 8
 	endOffset := byteCount*8 - bitLength - startOffset
+
+	if int(byteStart+byteCount) > len(bytes) {
+		return 0, fmt.Errorf("cannot read past end of bytes array")
+	}
 
 	var result uint32
 
@@ -48,5 +53,5 @@ func BitSequence(bytes []byte, bitStart uint32, bitLength uint32) uint32 {
 		result = result | uint32(local)
 	}
 
-	return result
+	return result, nil
 }
