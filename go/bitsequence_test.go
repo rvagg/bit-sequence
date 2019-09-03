@@ -23,7 +23,14 @@ func TestFixtures(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		actual := BitSequence(testCase.bytes, testCase.start, testCase.length)
+		actual, err := BitSequence(testCase.bytes, testCase.start, testCase.length)
+		if err != nil {
+			t.Errorf("Bytes [%s] start=%d length=%d returned an error reading",
+				hex.EncodeToString(testCase.bytes),
+				testCase.start,
+				testCase.length,
+			)
+		}
 		if actual != testCase.expected {
 			t.Errorf("Bytes [%s] start=%d length=%d expected %d but got %d",
 				hex.EncodeToString(testCase.bytes),
@@ -39,6 +46,21 @@ func TestFixtures(t *testing.T) {
 				testCase.expected,
 				actual)
 		} */
+	}
+}
+
+func TestReadPastEndErrors(t *testing.T) {
+	bytes, err := hex.DecodeString("ff")
+	if err != nil {
+		panic(err)
+	}
+	_, err = BitSequence(bytes, 16, 1)
+	if err == nil {
+		t.Errorf("Should not have allowed reading past end of byte array but did")
+	}
+	_, err = BitSequence(bytes, 14, 6)
+	if err == nil {
+		t.Errorf("Should not have allowed reading past end of byte array but did")
 	}
 }
 
