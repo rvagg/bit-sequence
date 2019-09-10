@@ -47,13 +47,14 @@ JavaScript's crazy numbers allows us to extract potentially very large bit seque
 
 ### API
 
-Exports `BitSequence(bytes []byte, bitStart uint32, bitLength uint32) uint32` where:
+Exports `BitSequence(bytes []byte, bitStart uint32, bitLength uint32) (uint32, error)` where:
 
 * `bytes` is a simple byte array of arbitrary length
-* `start` is a _bit_ index to start extraction (not a _byte_ index).
-* `length` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
+* `bitStart` is a _bit_ index to start extraction (not a _byte_ index).
+* `bitLength` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
 
 Returns an unsigned integer version of the bit sequence. The most significant bit is not interpreted for a two's compliment representation.
+Returns an error if `bitLength` exceeds 32 or the requested sequence overflows the bytes boundary.
 
 ## License and Copyright
 

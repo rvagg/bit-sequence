@@ -6,11 +6,12 @@ import "fmt"
 //
 // - `bytes` is a simple byte array of arbitrary length
 //
-// - `start` is a _bit_ index to start extraction (not a _byte_ index).
+// - `bitStart` is a _bit_ index to start extraction (not a _byte_ index).
 //
-// - `length` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
+// - `bitLength` is the number of bits to extract from the `bytes` array. This value can only be a maximum of `32`, higher values will be adjusted down.
 //
 // Returns an unsigned integer version of the bit sequence. The most significant bit is not interpreted for a two's compliment representation.
+// Returns an error if `bitLength` exceeds 32 or the requested sequence overflows the bytes boundary.
 func BitSequence(bytes []byte, bitStart uint32, bitLength uint32) (uint32, error) {
 	if bitLength > 32 {
 		return 0, fmt.Errorf("maximum bits that can be read is 32")
