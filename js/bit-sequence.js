@@ -1,3 +1,9 @@
+/**
+ * @param {Uint8Array} bytes
+ * @param {number} bitStart
+ * @param {number} bitLength
+ * @returns {number}
+ */
 function bitSequence (bytes, bitStart, bitLength) {
   // making an assumption that bytes is an Array-like that will give us one
   // byte per element, so either an Array full of 8-bit integers or a
