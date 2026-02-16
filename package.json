@@ -1,16 +1,133 @@
 {
   "name": "bit-sequence",
   "version": "1.1.0",
-  "description": "Turn an arbitrary sequence of bits from a byte array and turn it into an integer",
+  "description": "Turn an arbitrary sequence of bits from a byte array into an integer",
+  "type": "module",
   "main": "js/bit-sequence.js",
-  "types": "js/bit-sequence.d.ts",
+  "types": "types/bit-sequence.d.ts",
+  "exports": {
+    ".": {
+      "import": "./js/bit-sequence.js",
+      "types": "./types/bit-sequence.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "test": "node js/test.js"
+    "lint": "standard js/*.js",
+    "build": "npm run build:types",
+    "build:types": "tsc --build",
+    "test:unit": "node --test js/test.js",
+    "test": "npm run lint && npm run build:types && npm run test:unit"
   },
   "author": "Rod <rod@vagg.org> (http://r.va.gg/)",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/rvagg/bit-sequence.git"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.4",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
+    "semantic-release": "^25.0.3",
+    "standard": "^17.1.2",
+    "typescript": "^5.9.3"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "types/*"
+      ],
+      "types/*": [
+        "types/*"
+      ]
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "breaking": true,
+              "release": "major"
+            },
+            {
+              "revert": true,
+              "release": "patch"
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            },
+            {
+              "scope": "no-release",
+              "release": false
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "chore",
+                "section": "Trivial Changes"
+              },
+              {
+                "type": "docs",
+                "section": "Trivial Changes"
+              },
+              {
+                "type": "test",
+                "section": "Tests"
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
   }
 }

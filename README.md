@@ -1,6 +1,8 @@
 # bit-sequence
 
-**Turn an arbitrary sequence of bits from a byte array and turn it into an integer**
+[![NPM](https://nodei.co/npm/bit-sequence.svg?style=flat&data=n,v&color=blue)](https://nodei.co/npm/bit-sequence/)
+
+**Turn an arbitrary sequence of bits from a byte array into an integer**
 
 * [JavaScript](#javascript)
   * [Example](#example)
@@ -8,9 +10,11 @@
 * [Go](#go)
 * [License and Copyright](#license-and-copyright)
 
-## JavaScript
+## Requirements
 
-[![NPM](https://nodei.co/npm/bit-sequence.svg)](https://nodei.co/npm/bit-sequence/)
+Node.js >= 20
+
+## JavaScript
 
 Given an `Array`-like containing bytes (unsigned 8-bit integers), extract an arbitrary sequence of the underlying bits and convert them into an unsigned integer value.
 
@@ -19,8 +23,8 @@ Useful for cases where a sub-sequence of bits within a longer byte sequence is u
 ### Example
 
 ```js
-const bitSequence = require('bit-sequence')
-const assert = require('assert')
+import bitSequence from 'bit-sequence'
+import assert from 'node:assert'
 const bytes = new Uint8Array([ 0b00010101, 0b10101000, 0b00000000, 0b00000000 ])
 //               extract bits from here ^         to here ^
 const int = bitSequence(bytes, 7, 11)
