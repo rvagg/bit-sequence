@@ -1,6 +1,6 @@
 {
   "name": "bit-sequence",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Turn an arbitrary sequence of bits from a byte array into an integer",
   "type": "module",
   "main": "js/bit-sequence.js",
