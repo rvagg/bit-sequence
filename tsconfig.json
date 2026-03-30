@@ -25,7 +25,7 @@
     "skipLibCheck": true,
     "stripInternal": true,
     "emitDeclarationOnly": true,
-    "baseUrl": "."
+    "rootDir": "js"
   },
   "include": [
     "js/bit-sequence.js"
