@@ -1,3 +1,9 @@
+## [1.2.3](https://github.com/rvagg/bit-sequence/compare/v1.2.2...v1.2.3) (2026-06-04)
+
+### Trivial Changes
+
+* **deps:** bump actions/checkout from 6 to 6.0.2 ([#7](https://github.com/rvagg/bit-sequence/issues/7)) ([a372077](https://github.com/rvagg/bit-sequence/commit/a37207704367ef41684b3f51112fd5424b4894fe))
+
 ## [1.2.2](https://github.com/rvagg/bit-sequence/compare/v1.2.1...v1.2.2) (2026-04-28)
 
 ### Trivial Changes
