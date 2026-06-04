@@ -13,7 +13,7 @@ jobs:
         working-directory: go
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
@@ -35,7 +35,7 @@ jobs:
         working-directory: go
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
