@@ -1,3 +1,9 @@
+## [1.2.6](https://github.com/rvagg/bit-sequence/compare/v1.2.5...v1.2.6) (2026-06-24)
+
+### Trivial Changes
+
+* **deps:** bump actions/setup-go from 6 to 6.4.0 ([#10](https://github.com/rvagg/bit-sequence/issues/10)) ([98108e5](https://github.com/rvagg/bit-sequence/commit/98108e5625df903cda179ac19720f02d103aaf16))
+
 ## [1.2.5](https://github.com/rvagg/bit-sequence/compare/v1.2.4...v1.2.5) (2026-06-23)
 
 ### Trivial Changes
