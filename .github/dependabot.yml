@@ -3,27 +3,39 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
     commit-message:
       prefix: 'chore'
       include: 'scope'
     cooldown:
-      default-days: 5
+      default-days: 2
+    groups:
+      github-actions-minor-patch:
+        patterns: ['*']
+        update-types: ['minor', 'patch']
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
     commit-message:
       prefix: 'chore'
       include: 'scope'
     cooldown:
       default-days: 5
+    groups:
+      npm-minor-patch:
+        patterns: ['*']
+        update-types: ['minor', 'patch']
   - package-ecosystem: 'gomod'
     directory: '/go'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
     commit-message:
       prefix: 'chore'
       include: 'scope'
     cooldown:
       default-days: 5
+    groups:
+      gomod-minor-patch:
+        patterns: ['*']
+        update-types: ['minor', 'patch']
