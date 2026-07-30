@@ -1,3 +1,9 @@
+## [1.2.12](https://github.com/rvagg/bit-sequence/compare/v1.2.11...v1.2.12) (2026-07-30)
+
+### Trivial Changes
+
+* downgrade broken changelog maker, backfill entries ([#18](https://github.com/rvagg/bit-sequence/issues/18)) ([b2e0fa0](https://github.com/rvagg/bit-sequence/commit/b2e0fa0c6acded71c6addd06887068bd5ea28ed3))
+
 ## [1.2.11](https://github.com/rvagg/bit-sequence/compare/v1.2.10...v1.2.11) (2026-07-29)
 
 ### Trivial Changes
