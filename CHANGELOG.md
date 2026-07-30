@@ -1,10 +1,27 @@
 ## [1.2.11](https://github.com/rvagg/bit-sequence/compare/v1.2.10...v1.2.11) (2026-07-29)
 
+### Trivial Changes
+
+* **deps-dev:** bump typescript from 6.0.3 to 7.0.2 ([ec0f27d](https://github.com/rvagg/bit-sequence/commit/ec0f27d8d2b43c0083dcbea52ab3d4c31bebaf71))
+* fixes for ts@7 ([a79dfee](https://github.com/rvagg/bit-sequence/commit/a79dfee93ea1ed9eda116d88543866accf212ef6))
+
 ## [1.2.10](https://github.com/rvagg/bit-sequence/compare/v1.2.9...v1.2.10) (2026-07-29)
+
+### Trivial Changes
+
+* **deps:** bump the github-actions-minor-patch group with 2 updates ([#17](https://github.com/rvagg/bit-sequence/issues/17)) ([b3e554e](https://github.com/rvagg/bit-sequence/commit/b3e554e4407d209d89585878df67d3980d73031c))
 
 ## [1.2.9](https://github.com/rvagg/bit-sequence/compare/v1.2.8...v1.2.9) (2026-07-21)
 
+### Trivial Changes
+
+* **ci:** slow down dependabot, add depsound, pin actions by hash ([#16](https://github.com/rvagg/bit-sequence/issues/16)) ([7c9b57d](https://github.com/rvagg/bit-sequence/commit/7c9b57d1f6df4bb8866813dafa42ad608ec3b051))
+
 ## [1.2.8](https://github.com/rvagg/bit-sequence/compare/v1.2.7...v1.2.8) (2026-07-03)
+
+### Trivial Changes
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([#12](https://github.com/rvagg/bit-sequence/issues/12)) ([86d30a2](https://github.com/rvagg/bit-sequence/commit/86d30a2ce3a13ae0c2a951622e29da0458462333))
 
 ## [1.2.7](https://github.com/rvagg/bit-sequence/compare/v1.2.6...v1.2.7) (2026-06-30)
 
