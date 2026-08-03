@@ -1,3 +1,9 @@
+## [1.2.14](https://github.com/rvagg/bit-sequence/compare/v1.2.13...v1.2.14) (2026-08-03)
+
+### Trivial Changes
+
+* **deps-dev:** bump @semantic-release/git from 10.0.1 to 11.0.1 ([#20](https://github.com/rvagg/bit-sequence/issues/20)) ([ca222ee](https://github.com/rvagg/bit-sequence/commit/ca222ee82f1b1d6b3ae4b4c9b0378ecae787ab60))
+
 ## [1.2.13](https://github.com/rvagg/bit-sequence/compare/v1.2.12...v1.2.13) (2026-08-03)
 
 ### Trivial Changes
