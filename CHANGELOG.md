@@ -1,3 +1,9 @@
+## [1.2.13](https://github.com/rvagg/bit-sequence/compare/v1.2.12...v1.2.13) (2026-08-03)
+
+### Trivial Changes
+
+* **deps-dev:** bump @semantic-release/changelog from 6.0.3 to 7.0.0 ([#19](https://github.com/rvagg/bit-sequence/issues/19)) ([b44585b](https://github.com/rvagg/bit-sequence/commit/b44585b69f20f74ba632a4165b0902c1bea76a82))
+
 ## [1.2.12](https://github.com/rvagg/bit-sequence/compare/v1.2.11...v1.2.12) (2026-07-30)
 
 ### Trivial Changes
