@@ -1,3 +1,9 @@
+## [1.2.16](https://github.com/rvagg/bit-sequence/compare/v1.2.15...v1.2.16) (2026-10-19)
+
+### Trivial Changes
+
+* **deps:** bump actions/setup-node ([#25](https://github.com/rvagg/bit-sequence/issues/25)) ([0a3be3b](https://github.com/rvagg/bit-sequence/commit/0a3be3b0e14ce2a6c656358f5cdd59af0b58787a))
+
 ## [1.2.15](https://github.com/rvagg/bit-sequence/compare/v1.2.14...v1.2.15) (2026-08-03)
 
 ### Trivial Changes
