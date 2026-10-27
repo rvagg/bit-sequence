@@ -1,3 +1,13 @@
+## [2.0.0](https://github.com/rvagg/bit-sequence/compare/v1.2.17...v2.0.0) (2026-10-27)
+
+### ⚠ BREAKING CHANGES
+
+* **go:** bring in staticcheck to go.mod tools, bump Go to 1.26 (#27)
+
+### deps
+
+* **go:** bring in staticcheck to go.mod tools, bump Go to 1.26 ([#27](https://github.com/rvagg/bit-sequence/issues/27)) ([a177ca1](https://github.com/rvagg/bit-sequence/commit/a177ca107d7adda97cf32305d5537d6e09067706))
+
 ## [1.2.17](https://github.com/rvagg/bit-sequence/compare/v1.2.16...v1.2.17) (2026-10-27)
 
 ### Trivial Changes
