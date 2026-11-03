@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/rvagg/bit-sequence/compare/v2.0.0...v2.0.1) (2026-11-03)
+
+### Trivial Changes
+
+* **deps:** bump the github-actions-minor-patch group with 2 updates ([#29](https://github.com/rvagg/bit-sequence/issues/29)) ([32de3f6](https://github.com/rvagg/bit-sequence/commit/32de3f612db97f8189ee906c699988b701b78252))
+
 ## [2.0.0](https://github.com/rvagg/bit-sequence/compare/v1.2.17...v2.0.0) (2026-10-27)
 
 ### ⚠ BREAKING CHANGES
